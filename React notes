@@ -1,0 +1,182 @@
+control+` to call embedded terminal in VScode
+terminal:
+create-react-app counter-app
+npm i bootstrap@4.1.1
+
+type 'imrc+tab' using simple react extension to write the imort states;
+
+press 'command+p' to call out the little menu for 'go' file function;
+
+multiple cursors press'command+d'
+
+
+/* 
+<ul>
+          {this.state.tags.map(tag => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul
+there should always be a key in the li so that the browser console won't come up with the error for each child
+when ever render a list of attributes ,need key 
+*/
+
+
+input in JS 
+true- false
+string , no letters- false; at least one letter- trun;
+number, 0- false;>0 -true;
+
+
+event handler:
+method A--
+  constructor() {
+    super();
+    this.handleIncrement = this.handleIncrement.bind(this);
+  }
+  handleIncrement() {
+    console.log("Increment Clicked", this);
+  }
+  ---while this method requests that we create for each one;
+  
+  method B--
+  handleIncrement() {
+    console.log("Increment Clicked", this);
+  }
+  ---create error function, not sure wehter it's gonan last long
+  
+  
+  Passing children
+  Passing attribute to component using JS 'props'
+  example1
+  --counters.jsx--counter could be replaced with a real world diaglog box,allow consumer to pass content from dialog to be rendere on the dialog box
+  render() {
+    return (
+      <div>
+        {this.state.counters.map(counter => (
+          <Counter key={counter.id} value={counter.value}>
+            <h4>Counter #{counter.id}</h4>
+          </Counter>
+        ))}
+      </div>
+    );
+  }
+}
+--counter.jsx----
+render() {
+    return (
+      <React.Fragment>
+        {this.props.children}
+example2
+--counters---
+
+  handleDelete = () => {
+    console.log("Event Handlr Called");
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.counters.map(counter => (
+          <Counter
+            key={counter.id}
+            onDelete={this.handleDelete}
+            value={counter.value}
+          />
+        ))}
+      </div>
+    );
+  }
+}
+
+--counter--
+
+
+  render() {
+    return (
+      <div>
+        <span style={this.styles} className={this.getBadgeClasses()}>
+          {this.formatCount()}
+        </span>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+        <button
+          onClick={this.props.onDelete}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
+      </div>
+    );
+  }
+  
+  
+  
+  Codes with tags--
+  class Counter extends Component {
+  state = {
+    value: this.props.counter.value
+  };
+
+  styles = {
+    fontSize: 20,
+    fontWeight: "bold"
+  };
+
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>There are no tags!</p>;
+    return (
+      <ul>
+        {this.state.tags.map(tag => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
+  }
+
+        
+Good Tool:
+React Developer Tool extension on Firefox/chrome
+Being able to use $r kind of shortcut to visist the elements in console 
+  
+  
+Props vs State
+Props:to initialize the state; includes data given to a component; ready-only
+State:includes data that local or private in that comonent，other component can't access
+
+*the component that owns a piece of the state,should be the one modifying it.*
+
+
+
+Stainless Function Component
+--define the class using function ,up to different developer
+
+
+Lifecycle hooks
+1.mount
+2.update
+3.unmount
+
+---
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      //ajax call and get new data from the server
+    }
+    
+ ---it's able to check and make a ajex call and get the new data from the server
+ 
+ 
+ Props
+ Raising and Handling Events
+ Lifting the State
+ Functional Components
+ Lifecycle Hooks 
+ 
+ 
+ 
+ 
